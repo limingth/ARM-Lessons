@@ -1,49 +1,51 @@
-�γ̰���
+﻿
+课程安排
 =========
 
 # day1:
-	1. ���������
+	1. 开发环境搭建
 
-	2. оƬ�ֲᵼ��
+	2. 芯片手册导读
 
-	3. GPIO ������
+	3. GPIO 控制器
 
 # day2:
-	4. CLOCK ʱ�ӹ���
+	4. CLOCK 时钟管理
 
-	5. UART ������
+	5. UART 控制器
 
 # day3:
-	6. SDRAM ������
+	6. SDRAM 控制器
 
-	7. NandFlash ������
+	7. NandFlash 控制器
 
 # day4:
-	��Ŀʵ��1 - Bootloader ��������
+	项目实践1 - Bootloader 启动代码
 
 # day5:
-	8. Exception �쳣����
+	8. Exception 异常处理
 
-	9. Interrupt ������
+	9. Interrupt 控制器
 
-	10. PWM Timer ��ʱ��
+	10. PWM Timer 定时器
 
 # day6:
-	11. DMA ������
+	11. DMA 控制器
 
-	12. LCD ������
+	12. LCD 控制器
 
-	13. BMP ͼƬ��ʾ
+	13. BMP 图片显示
 
 # day7:
-	14. IIS ��Ƶ����
+	14. IIS 音频总线
 
-	15. ��ƵоƬ���� UDA1341
+	15. 音频芯片驱动 UDA1341
 
-	16. WAV ��Ƶ����
+	16. WAV 音频播放
 
 # day8:
-	��Ŀʵ��2 - DPF ��������
+	项目实践2 - DPF 数码相框
+
 
 
 ARM 课程笔记
@@ -106,6 +108,8 @@ day1:
 				安装 H-JTAG V0.9.2.EXE
 
 	H-Jtag 测试
+		检测 CPU -> ARM920T
+		烧写 bin -> S3C2440/S3C2410 + K9F1208 -> RAM at 0 -> Plain Binary
 	
 	串口测试
 		uboot 3秒之内按回车键，进入到 shell
