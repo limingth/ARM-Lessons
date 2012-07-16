@@ -1,55 +1,55 @@
 ﻿
 课程安排
-=========
+========
 
-# day1:
+# day1: 开发概述
 	1. 开发环境搭建
 
 	2. 芯片手册导读
 
 	3. GPIO 控制器
 
-# day2:
+# day2: 时钟和串口
 	4. CLOCK 时钟管理
 
 	5. UART 控制器
 
-# day3:
+# day3: 存储管理
 	6. SDRAM 控制器
 
 	7. NandFlash 控制器
 
-# day4:
+# day4: 启动代码项目实践
 	项目实践1 - Bootloader 启动代码
 
-# day5:
+# day5: 异常和中断
 	8. Exception 异常处理
 
 	9. Interrupt 控制器
 
 	10. PWM Timer 定时器
 
-# day6:
+# day6: 显示输出
 	11. DMA 控制器
 
 	12. LCD 控制器
 
 	13. BMP 图片显示
 
-# day7:
+# day7: 音频输出
 	14. IIS 音频总线
 
 	15. 音频芯片驱动 UDA1341
 
 	16. WAV 音频播放
 
-# day8:
+# day8: 数码相框项目实践
 	项目实践2 - DPF 数码相框
 
 
 
-ARM 课程笔记
-=============
+课堂笔记
+========
 
 day1: 
 ======
@@ -71,7 +71,9 @@ day1:
 	连接教师机，远程查看桌面
 
 ## 课程安排介绍
-	8天 * 7.5学时 = 60 学时
+	上课时间	周一/周二/周三  周五/周六  （周四周日休息）
+			上午 8:30 - 12:00	下午 13:00 - 17:00
+	课时 	8天 * 7.5学时/天 = 60 学时
 	班长发言
 
 ## 工具安装
@@ -185,9 +187,10 @@ day1:
 	make.exe - copy it to c:\program files\arm\adsv1_2\bin
 	armcc test.c -o test.axf
 	fromelf -bin test.axf -o test.bin
+	串口输出测试程序： 通过 UTXH 串口发送寄存器，循环输出字符 'a'	
 	
-	
-	
+课后作业
+	提前预习芯片手册 io ports, clock, uart 章节
 	
 	
 	
