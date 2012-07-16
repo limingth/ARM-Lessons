@@ -1,6 +1,6 @@
 ﻿
-课程安排	schedule.txt
+课程安排	schedule.md
 
-课堂笔记	classnotes.txt
+课堂笔记	classnotes.md
 
 
