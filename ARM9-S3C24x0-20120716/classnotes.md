@@ -212,7 +212,11 @@ day2:
 	DIV: 分频器 分频 (200Mhz/xxx) = 200M/100M/50M
 
 ## Clock SFR 时钟寄存器
-
+	MPLLCON: 12M -> 200M
+	CLKDIVN: 200M -> 200M/100M/50M (FCLK/HCLK/PCLK)
+		[2:1] 01: HCLK = FCLK/2
+		[0]    1: PCLK = HCLK/2
+		
 #4 UART 串口驱动
 	
 	
