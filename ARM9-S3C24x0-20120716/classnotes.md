@@ -149,6 +149,7 @@ day2:
 ======	
 #1 S3C2440/2410 芯片手册综述
 ## 芯片里面有什么？ (看完手册后，找出最重要的3个组成部分)
+	Block Diagram 
 	1. ARM920T 内核(处理器内核) - 运算
 	2. BUS (AMBA总线)
 	3. Peripheral Controller (外设控制器) - 控制
@@ -188,13 +189,29 @@ day2:
 			-> Input/Output (标准输入和输出)
 			-> Selectable Function (复用功能)
 			-> Default Value (默认值)
+		地址范围 0x48000000 - 0x5B000000 (p56-p68)
+			-> range: 0x130'00000 = 0x130MB	(304M)
+			-> units: 12 * 30 = 300+ SFRs
+			
+	
 ## GPIO 编程
+	S3C2440 SW1 按键连接情况
 	assign EINT[0] = KBIN[1];	-> GPF0
 	assign EINT[2] = KBIN[0];	-> GPF2
 	assign KBOUT[0] = GPB9;		-> GPB9
 	assign KBOUT[1] = GPB8;		-> GPB8
 	
+	总结：
+	配置CON寄存器，影响管脚功能
+	读写DAT寄存器，访问管脚数据	
+	
 #3 Clock 时钟管理
+## Clock Generator 时钟发生器
+	MUX: 选通器 二选一  (OM[3:2])
+	PLL: 锁相环 倍频 (12M*xxx) = 200Mhz
+	DIV: 分频器 分频 (200Mhz/xxx) = 200M/100M/50M
+
+## Clock SFR 时钟寄存器
 
 #4 UART 串口驱动
 	
