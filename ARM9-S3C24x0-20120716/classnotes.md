@@ -143,10 +143,25 @@ day1:
 课后作业
 	提前预习芯片手册 io ports, clock, uart 章节
 	
-	
-	
-	
-	
+
+day2: 
+======	
+#1 S3C2440/2410 芯片手册综述
+## 芯片里面有什么？ (看完手册后，找出最重要的3个组成部分)
+	1. ARM920T 内核(处理器内核) - 运算
+	2. BUS (AMBA总线)
+	3. Peripheral Controller (外设控制器) - 控制
+		1. Clock & Power (心跳和血液)
+		2. GPIO (管脚复用功能)
+		3. Memory Controller (存储控制器)
+		4. Interrupt Controller (中断控制器)
+		5. DMA Controller (直接存储访问)
+
+#2 GPIO 控制器
+
+#3 Clock 时钟管理
+
+#4 UART 串口驱动
 	
 	
 	
