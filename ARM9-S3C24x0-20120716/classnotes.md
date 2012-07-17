@@ -105,6 +105,7 @@ day1:
 	书签功能
 	ctrl + 滚轮 实现放大缩小
 	ctrl + f 搜索功能
+	ctrl + shift + n 跳转到页码
 	图形标注工具 (菜单 -> 视图 -> 工具栏 下面)
 	
 ## 硬件原理图介绍
@@ -158,7 +159,41 @@ day2:
 		5. DMA Controller (直接存储访问)
 
 #2 GPIO 控制器
-
+## S3C2440 Pins (管脚)
+	Pin Assignments 管脚定义
+		17 * 17 = 289 FBGA (Fine-Pitch Ball Grid Array) 球栅阵列
+	Pin Number 管脚编号 (物理位置)
+	Pin Name 管脚名称 (逻辑含义)
+		以串口 UART0 为例
+		TXD0 - GPH2 (复用)
+		RXD0 - GPH3
+	Selectable Pin Functions (可选择的管脚功能) 
+	Signal Descriptions  (信号描述)
+		以 NandFlash 为例
+		子板原理图 -> P3 (NandFlash) 
+		2440 芯片手册 
+			-> P49 (Signal Descriptions)  信号描述
+			-> P275 (Pin Functions) 管脚功能
+		nFCE	片选信号		GPA22
+		CLE	命令锁存使能信号	GPA17
+		ALE	地址锁存使能信号	GPA18
+		nFWE	写使能信号		GPA19
+		nFRE	读使能信号		GPA20
+		RnB	Ready/not Busy就绪/忙等待信号	无
+	GPA Port 管理 P280
+		GPACON 配置寄存器
+		GPADAT 数据寄存器
+	SFR (Special Function Register) 特殊功能寄存器
+		1 pin -> control bits 位数
+			-> Input/Output (标准输入和输出)
+			-> Selectable Function (复用功能)
+			-> Default Value (默认值)
+## GPIO 编程
+	assign EINT[0] = KBIN[1];	-> GPF0
+	assign EINT[2] = KBIN[0];	-> GPF2
+	assign KBOUT[0] = GPB9;		-> GPB9
+	assign KBOUT[1] = GPB8;		-> GPB8
+	
 #3 Clock 时钟管理
 
 #4 UART 串口驱动
