@@ -235,6 +235,19 @@ day2:
 	0x50004028 <- 0x1a
 	while (1)
 		0x50004020 <- 'a'
+
+## demo-code
+	start.s
+	main.c
+	uart.c/h
+	lib.c/h
+	print_regs()
+	
+## 课后作业
+	用 uart 驱动的分析逻辑，去查看 sdram 和 nandflash 的硬件连接，管脚功能复用，时序图
+	用 print_regs 去分析 sdram 和 nandflash 的 SFR 寄存器配置情况
+	用 google 总结推理出 sdram 和 nandflash 的 controller 工作逻辑
+	
 	
 	
 
