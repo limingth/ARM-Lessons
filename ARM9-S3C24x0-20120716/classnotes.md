@@ -217,6 +217,9 @@ day2:
 		[2:1] 01: HCLK = FCLK/2
 		[0]    1: PCLK = HCLK/2
 		
+day3: 
+======
+
 #4 UART 串口驱动
 	使用 print_hex(int addr) 函数，打印 2440 手册上 P61 页关于 UART 寄存器的值，并分析串口驱动原理。
 	
