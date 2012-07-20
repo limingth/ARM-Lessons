@@ -252,7 +252,23 @@ day3:
 	用 google 总结推理出 sdram 和 nandflash 的 controller 工作逻辑
 	
 	
-	
+		
+day4: 
+======	
+
+#1 SDRAM 和 NandFlash 的硬件连接
+
+
+#2 SDRAM 和 NandFlash 的管脚功能复用
+
+
+#3 SDRAM 和 NandFlash 的时序图
+
+
+#4 SDRAM 和 NandFlash 的寄存器配置
+
+
+#5 SDRAM 和 NandFlash 的工作原理
 
 
 
