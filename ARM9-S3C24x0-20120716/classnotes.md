@@ -256,19 +256,19 @@ day3:
 day4: 
 ======	
 
-#1 SDRAM 和 NandFlash 的硬件连接
+#1 SDRAM vs NandFlash 的硬件连接
 
 
-#2 SDRAM 和 NandFlash 的管脚功能复用
+#2 SDRAM vs NandFlash 的管脚功能复用
 
 
-#3 SDRAM 和 NandFlash 的时序图
+#3 SDRAM vs NandFlash 的时序图
 
 
-#4 SDRAM 和 NandFlash 的寄存器配置
+#4 SDRAM vs NandFlash 的寄存器配置
 
 
-#5 SDRAM 和 NandFlash 的工作原理
+#5 SDRAM vs NandFlash 的工作原理
 
 
 
