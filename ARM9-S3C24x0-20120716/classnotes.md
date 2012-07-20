@@ -338,7 +338,11 @@ day4:
 		
 ## NandFlash
 
-
+	在 nand_read_page 函数的基础上，实现对任意 nand 地址和任意长度内容的读操作。
+	
+	void nand_read(int nand_addr, int sdram_addr, int size);
+	
+	从 nand 1M 处读 3M 内容到 0x30008000 sdram 的地址上去。
 
 
 
