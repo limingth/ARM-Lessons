@@ -1,4 +1,15 @@
 
+void nand_read(int sdram_addr, int nand_addr, int size)
+{
+	int pages = (size - 1)/PAGE_SIZE + 1;
+	int i;
+
+	for (i = 0; i < pages; i++)
+		nand_read_page(nand_addr + i*PAGE_SIZE, (char *)(sdram_addr + i*PAGE_SIZE));
+
+	return;
+}
+
 /*
  * in this stdio.c, '\n' will be treated as '\r'+'\n'
  * if you putchar('\n') then you will put 2 char: Return and Newline ("\r\n")
