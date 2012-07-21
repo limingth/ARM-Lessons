@@ -1,13 +1,17 @@
 
-void nand_read(int sdram_addr, int nand_addr, int size)
-{
-	int pages = (size - 1)/PAGE_SIZE + 1;
+void nand_read(int nand_addr, char * buf, int size)
+{	
+	int pages;
 	int i;
 
-	for (i = 0; i < pages; i++)
-		nand_read_page(nand_addr + i*PAGE_SIZE, (char *)(sdram_addr + i*PAGE_SIZE));
+	if (size <= 0)
+		return;
 
-	return;
+	// get how many pages to be read
+	pages = (size - 1) / 512 + 1;
+
+	for (i = 0; i < pages; i++)
+		nand_read_page(nand_addr+i*512, buf+i*512);
 }
 
 /*
