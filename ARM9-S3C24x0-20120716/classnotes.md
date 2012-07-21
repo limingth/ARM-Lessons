@@ -272,7 +272,9 @@ day4:
 	c_A1/A0 2根 -> 32位数据宽度	
 
 ## NandFlash
-
+	IO0-IO7
+	nFCE/CLE/ALE/RnB
+	nFWE/nFRE
 
 #2 管脚功能复用
 ## SDRAM
@@ -294,7 +296,10 @@ day4:
 	4. 数据读写
 	
 ## NandFlash
-	
+	1. 命令周期
+	2. 地址周期
+	3. 忙等待
+	4. 数据周期
 
 #4 寄存器配置
 ## SDRAM
@@ -305,7 +310,11 @@ day4:
 	MRSRB6: CAS延迟
 	
 ## NandFlash
-
+	NFCONF： 时序
+	NFCONT： 使能
+	NFCMMD： 命令字
+	NFADDR： 地址字
+	NFDATA： 读写数据
 
 #5 工作原理
 ## SDRAM
@@ -343,6 +352,16 @@ day4:
 	void nand_read(int nand_addr, int sdram_addr, int size);
 	
 	从 nand 1M 处读 3M 内容到 0x30008000 sdram 的地址上去。
+
+
+day5: 
+======	
+
+# Bootloader 项目实践
+## 项目分组
+
+
+## 任务目标
 
 
 
