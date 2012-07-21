@@ -1,9 +1,35 @@
 
-void nand_read(int nand_addr, char * buf, int size)
+void nand_read_page(int nand_addr, char * buf)
+{
+	int i = 0;
+
+	// Nand Flash Read
+	//	1. D¡ä NFCMMD = 0x00
+	NFCMD = 0x00;
+
+	//	2. D¡ä 4 ¡ä? NFADDR
+	NFADDR = nand_addr & 0xff;		// A0-A7
+	NFADDR = (nand_addr >> 9) & 0xff;	// A9-A16
+	NFADDR = (nand_addr >> 17) & 0xff;	// A17-A24
+	NFADDR = (nand_addr >> 25) & 0xff;	// A25
+
+	//	3. ???¡¥ NFSTAT¡ê??¡ä R/nB
+	while ((NFSTAT & (1<<0)) == 0)
+		;
+
+	//	4. ?¨¢ 512 ¡ä? NFDATA
+	for (i = 0; i < 512; i++)
+	{
+		*buf++ = NFDATA & 0xFF;
+	}
+}
+
+void nand_read(int nand_addr, int sdram_addr, int size)
 {	
 	int pages;
 	int i;
-
+	char * buf = (char *)sdram_addr;
+	
 	if (size <= 0)
 		return;
 
