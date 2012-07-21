@@ -385,25 +385,33 @@ day5:
 ## 扩展任务
 ###5 实现 linux 命令，可以加载并启动已经烧写的 linux 内核
 	提示： 需要给内核传递参数，通过 r0, r1, r2 3个寄存器
-
-	参考： 
+		注意：Linux 内核默认的加载执行地址都是 0x30008000 
 	
+	参考信息： 	
 	mc2410 开发板 NandFlash 分区
-	0x00000000-0x00020000 : "vivi"
-	0x00020000-0x00030000 : "param"
-	0x00030000-0x001f0000 : "kernel"
-	0x00200000-0x04000000 : "root"
+		0x00000000-0x00020000 : "vivi"
+		0x00020000-0x00030000 : "param"
+		0x00030000-0x001f0000 : "kernel"
+		0x00200000-0x04000000 : "root"
+		
+		vivi (bootloader): 0x20000 = 128K 
+		1block = 32page = 512byte = 0.5K = 16K
+		128K = 16K * 8block
+		
+		kernel (内核): 0x30000 = 192K = 12block
+		size = 0x1c0000 = 128K*14 = 112blocks => 124block
+		
+		rootfs (文件系统): 0x200000 = 128block
 	
-	vivi (bootloader): 0x20000 = 128K 
-	1block = 32page = 512byte = 0.5K = 16K
-	128K = 16K * 8block
-	
-	kernel (内核): 0x30000 = 192K = 12block
-	size = 0x1c0000 = 128K*14 = 112blocks => 124block
-	
-	rootfs (文件系统): 0x200000 = 128block
-	
-	
+	akae2440 开发板 NandFlash 分区	
+		// load linux kernel from flash 1M: -> SDRAM 0x30008000 (size = 2M)
+		printf("load linux kernel from flash 1M: -> SDRAM 0x30008000 (size = 2M) \n");
+		nand_read(0x100000, (char *)0x30008000, 0x200000);	
+		
+		// load rootfs from flash 4M: -> SDRAM 0x30800000 (size = 6M)	
+		printf("load rootfs from flash 4M: -> SDRAM 0x30800000 (size = 6M) \n");
+		nand_read(0x400000, (char *)0x30800000, 0x600000);	
+
 	
 ###6 实现 loadx 命令，可以通过 xmodem 协议下载
 	提示： 实现 xmodem 协议可以简化，不做校验，不做重发
