@@ -94,7 +94,7 @@ void init_taglist(int addr)
 	p->hdr.size = 0;
 }
 
-int linux(int argc, char * argv[])
+int linux(void)
 {
 	// linux start address must be 0x30008000
 	int addr = 0x30008000;	
@@ -103,11 +103,11 @@ int linux(int argc, char * argv[])
 
 	// load linux kernel from flash 1M: -> SDRAM 0x30008000 (size = 3M)
 	puts("load linux kernel from flash 1M: -> SDRAM 0x30008000 (size = 3M) \n");
-	nand_read(0x100000, (char *)0x30008000, 0x300000);	
+	//nand_read(0x100000, (char *)0x30008000, 0x300000);	
 	
 	// load rootfs from flash 4M: -> SDRAM 0x30800000 (size = 6M)	
 	puts("load rootfs from flash 4M: -> SDRAM 0x30800000 (size = 6M) \n");
-	nand_read(0x400000, (char *)0x30800000, 0x600000);	
+	//nand_read(0x400000, (char *)0x30800000, 0x600000);	
 	
 	fp = (void (*)(int, int, int))addr;
 	

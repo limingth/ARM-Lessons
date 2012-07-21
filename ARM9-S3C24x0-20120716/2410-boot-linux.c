@@ -99,14 +99,14 @@ void setup_linux_param(unsigned long param_base)
 	memcpy0(params->commandline, linux_cmd, strlen0(linux_cmd) + 1);
 }
 
-int linux(int argc, char * argv[])
+int linux(void)
 {
 	int taglist = 0x30000100;
 	void (*fp)(int, int, int);
 	
 	// load linux kernel from flash 1M: -> SDRAM 0x30008000 (size = 2M)
 	puts("load linux kernel from flash 0x30000: -> SDRAM 0x30008000 (size = 2M) \n");
-	nand_read(0x30000, (char *)0x30008000, 0x200000);	
+	//nand_read(0x30000, (char *)0x30008000, 0x200000);	
 	
 	fp = (void (*)(int, int, int))0x30008000;
 	
