@@ -386,6 +386,25 @@ day5:
 ###5 实现 linux 命令，可以加载并启动已经烧写的 linux 内核
 	提示： 需要给内核传递参数，通过 r0, r1, r2 3个寄存器
 
+	参考： 
+	
+	mc2410 开发板 NandFlash 分区
+	0x00000000-0x00020000 : "vivi"
+	0x00020000-0x00030000 : "param"
+	0x00030000-0x001f0000 : "kernel"
+	0x00200000-0x04000000 : "root"
+	
+	vivi (bootloader): 0x20000 = 128K 
+	1block = 32page = 512byte = 0.5K = 16K
+	128K = 16K * 8block
+	
+	kernel (内核): 0x30000 = 192K = 12block
+	size = 0x1c0000 = 128K*14 = 112blocks => 124block
+	
+	rootfs (文件系统): 0x200000 = 128block
+	
+	
+	
 ###6 实现 loadx 命令，可以通过 xmodem 协议下载
 	提示： 实现 xmodem 协议可以简化，不做校验，不做重发
 
