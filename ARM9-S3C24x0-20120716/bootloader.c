@@ -1,3 +1,5 @@
+#define S3C2440
+//#define S3C2410
 
 #ifdef S3C2440
 
@@ -63,6 +65,64 @@ void nand_init(void)
   	NFCONF &= ~(1<<11);
 }
 #endif
+
+
+int nand_read_id(void)
+{	
+	int id = 0;
+	
+	// see k9f1208.pdf  P27
+	// write CMD = 0x90
+	NFCMMD = 0x90;
+	
+	// write ADDR = 0x00
+	NFADDR = 0x00;	
+		
+	id = NFDATA << 24 | NFDATA << 16 | NFDATA << 8 | NFDATA << 0;
+	
+	return id;
+}
+
+void nand_read_page(int addr, char * buf)
+{
+	int i = 0;
+	
+	// see k9f1208.pdf  P22
+	// write CMD = 0x00
+	NFCMMD = 0x00;
+	
+	// write 4 ADDR = 0x00
+	NFADDR = addr & 0xFF;				// A0-A7
+	NFADDR = (addr >> 9) & 0xFF;			// A9-A16
+	NFADDR = (addr >> 17) & 0xFF;			// A17-A24
+	NFADDR = (addr >> 25) & 0x1;			// A25
+	
+	// wait for Ready
+	while ((NFSTAT & 0x1) == 0)
+		;
+	
+	// read data
+	for (i = 0; i < 512; i++)
+		*buf++ = NFDATA;
+		
+	return;
+}
+
+void nand_read(int nand_addr, int sdram_addr, int size)
+{	
+	int pages;
+	int i;
+	char * buf = (char *)sdram_addr;
+
+	if (size <= 0)
+		return;
+
+	// get how many pages to be read
+	pages = (size - 1) / 512 + 1;
+
+	for (i = 0; i < pages; i++)
+		nand_read_page(nand_addr+i*512, buf+i*512);
+}
 
 /*
  * in this stdio.c, '\n' will be treated as '\r'+'\n'
