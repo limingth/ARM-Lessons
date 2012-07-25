@@ -456,6 +456,31 @@ day5:
 	12组 3人 组长：刘
 	13组 3人 组长：刘
 	
+
+day6: 
+======	
+
+# 异常和中断
+
+
+day7: 
+======	
+
+# 数码相框 项目实践
+
+## NandFlash 存储分配
+	0x0 - 0x1000	4K	mybootloader
+	1M - 16M	15M	linux + rootfs
+	16M - 32M	16M	bmp files (at ? block)
+	32M - 64M	32M	wav file (at ? block)
+	
+## SDRAM 内存分配
+	0x30000000 - 0x31000000		16M	linux kernel
+	0x31000000 - 0x31100000		16M	prj-dpf.bin
+	0x32000000 - 0x33000000		16M	lcd framebuffer
+	0x33000000 - 0x33300000		3M	bmp data
+	0x33300000 - 0x34000000		13M	wav data
+	
 	
 
 
