@@ -481,6 +481,8 @@ day7:
 	0x33000000 - 0x33300000		3M	bmp data
 	0x33300000 - 0x34000000		13M	wav data
 	
-	
+## mp3 to wav 转换工具	
+	http://www.mp3do.com/mp3converter.html
+	http://www.mp3do.com/download/mp3converter/advanced-mp3-converter.exe
 
 
