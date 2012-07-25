@@ -1,0 +1,1 @@
+sjf2440 /f:u-boot-nand.bin
