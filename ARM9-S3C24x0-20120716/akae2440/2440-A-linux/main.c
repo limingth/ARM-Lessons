@@ -20,6 +20,8 @@
 #define BANKCON6	(*(volatile unsigned int *)0x4800001C)
 #define BANKSIZE	(*(volatile unsigned int *)0x48000028)
 #define REFRESH		(*(volatile unsigned int *)0x48000024)
+#define MRSRB6		(*(volatile unsigned int *)(0x4800002C))
+ 
 
 #define UTRSTAT0 *(volatile int *)0x50000010
 #define URXH0 *(volatile int *)0x50000024
@@ -56,6 +58,10 @@ void sdram_init(void)
 	// Refresh count = 211 + 1 - 100x7.8 = 1269
 	// 7.8 us = 64ms / 8192(8K) = 7.8125
 	REFRESH |= 1269;
+	
+	// CAS latency
+	//	000 = 1 clock,     010 = 2 clocks,    011=3 clocks
+	MRSRB6 = 3<<4;
 }
 
 int shell_parse2(char * buf, char * argv[])

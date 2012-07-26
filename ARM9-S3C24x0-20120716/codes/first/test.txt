@@ -1,0 +1,134 @@
+
+========================================================================
+
+** ELF Header Information
+
+    File Name: test.axf
+
+    Machine class: ELFCLASS32 (32-bit)
+    Data encoding: ELFDATA2LSB (Little endian)
+    Header version: EV_CURRENT (Current version)
+    File Type: ET_EXEC (Executable) (2)
+    Machine: EM_ARM (ARM)
+
+    Image Entry point: Not specified
+    Flags: EF_ARM_SYMSARESORTED + EF_ARM_MAPSYMSFIRST (0x02000014)
+
+    EABI conformance : ARM EABI Version 2.
+
+    Built with
+    ARM C Compiler, ADS1.2 [Build 805]
+    ARM Linker, ADS1.2 [Build 805] 
+
+    Header size: 52 bytes (0x34)
+    Program header entry size: 32 bytes (0x20)
+    Section header entry size: 40 bytes (0x28)
+
+    Program header entries: 1
+    Section header entries: 8
+
+    Program header offset: 844 (0x0000034c)
+    Section header offset: 876 (0x0000036c)
+
+    Section header string table index: 7
+
+========================================================================
+
+** Program header #0 (PT_LOAD) [PF_X + PF_R]
+    Size : 224 bytes
+    Virtual address: 0x00008000
+
+
+========================================================================
+
+** Section #1 'ER_RO' (SHT_PROGBITS) [SHF_ALLOC + SHF_EXECINSTR]
+    Size   : 224 bytes (alignment 4)
+    Address: 0x00008000
+
+    abcd
+    $a
+    .text
+        0x00008000:    e92d4030    0@-.    STMFD    r13!,{r4,r5,r14}
+        0x00008004:    e3a00001    ....    MOV      r0,#1
+        0x00008008:    e3a03456    V4..    MOV      r3,#0x56000000
+        0x0000800c:    e5830010    ....    STR      r0,[r3,#0x10]
+        0x00008010:    e3a0e450    P...    MOV      r14,#0x50000000
+        0x00008014:    e3a05062    bP..    MOV      r5,#0x62
+        0x00008018:    e3a04061    a@..    MOV      r4,#0x61
+        0x0000801c:    e3a01000    ....    MOV      r1,#0
+        0x00008020:    e5930014    ....    LDR      r0,[r3,#0x14]
+        0x00008024:    e3802001    . ..    ORR      r2,r0,#1
+        0x00008028:    e5832014    . ..    STR      r2,[r3,#0x14]
+        0x0000802c:    e58e4020     @..    STR      r4,[r14,#0x20]
+        0x00008030:    e3a00000    ....    MOV      r0,#0
+        0x00008034:    e2800001    ....    ADD      r0,r0,#1
+        0x00008038:    e250caf4    ..P.    SUBS     r12,r0,#0xf4000
+        0x0000803c:    a25ccf90    ..\.    SUBGES   r12,r12,#0x240
+        0x00008040:    bafffffb    ....    BLT      0x8034
+        0x00008044:    e3c20001    ....    BIC      r0,r2,#1
+        0x00008048:    e5830014    ....    STR      r0,[r3,#0x14]
+        0x0000804c:    e58e5020     P..    STR      r5,[r14,#0x20]
+        0x00008050:    e3a00000    ....    MOV      r0,#0
+        0x00008054:    e2800001    ....    ADD      r0,r0,#1
+        0x00008058:    e250caf4    ..P.    SUBS     r12,r0,#0xf4000
+        0x0000805c:    a25ccf90    ..\.    SUBGES   r12,r12,#0x240
+        0x00008060:    bafffffb    ....    BLT      0x8054
+        0x00008064:    e2811001    ....    ADD      r1,r1,#1
+        0x00008068:    e3510003    ..Q.    CMP      r1,#3
+        0x0000806c:    baffffeb    ....    BLT      0x8020
+        0x00008070:    e59f1064    d...    LDR      r1,0x80dc
+        0x00008074:    e3a0044c    L...    MOV      r0,#0x4c000000
+        0x00008078:    e5801004    ....    STR      r1,[r0,#4]
+        0x0000807c:    e3a01004    ....    MOV      r1,#4
+        0x00008080:    e5801014    ....    STR      r1,[r0,#0x14]
+        0x00008084:    e3a00000    ....    MOV      r0,#0
+        0x00008088:    e5931014    ....    LDR      r1,[r3,#0x14]
+        0x0000808c:    e3812001    . ..    ORR      r2,r1,#1
+        0x00008090:    e5832014    . ..    STR      r2,[r3,#0x14]
+        0x00008094:    e58e4020     @..    STR      r4,[r14,#0x20]
+        0x00008098:    e3a01000    ....    MOV      r1,#0
+        0x0000809c:    e2811001    ....    ADD      r1,r1,#1
+        0x000080a0:    e251caf4    ..Q.    SUBS     r12,r1,#0xf4000
+        0x000080a4:    a25ccf90    ..\.    SUBGES   r12,r12,#0x240
+        0x000080a8:    bafffffb    ....    BLT      0x809c
+        0x000080ac:    e3c21001    ....    BIC      r1,r2,#1
+        0x000080b0:    e5831014    ....    STR      r1,[r3,#0x14]
+        0x000080b4:    e58e5020     P..    STR      r5,[r14,#0x20]
+        0x000080b8:    e3a01000    ....    MOV      r1,#0
+        0x000080bc:    e2811001    ....    ADD      r1,r1,#1
+        0x000080c0:    e251caf4    ..Q.    SUBS     r12,r1,#0xf4000
+        0x000080c4:    a25ccf90    ..\.    SUBGES   r12,r12,#0x240
+        0x000080c8:    bafffffb    ....    BLT      0x80bc
+        0x000080cc:    e2800001    ....    ADD      r0,r0,#1
+        0x000080d0:    e3500003    ..P.    CMP      r0,#3
+        0x000080d4:    baffffeb    ....    BLT      0x8088
+        0x000080d8:    eafffffe    ....    B        0x80d8
+    $d
+        0x000080dc:    0003c021    !...    DCD    245793
+
+** Section #2 '.debug_frame' (SHT_PROGBITS)
+    Size   : 72 bytes
+
+
+** Section #3 '.symtab' (SHT_SYMTAB)
+    Size   : 128 bytes (alignment 4)
+    String table '.strtab'
+    Last local symbol no. 5
+
+
+** Section #4 '.strtab' (SHT_STRTAB)
+    Size   : 120 bytes
+
+
+** Section #5 '.note' (SHT_NOTE)
+    Size   : 20 bytes (alignment 4)
+
+
+** Section #6 '.comment' (SHT_PROGBITS)
+    Size   : 144 bytes
+
+
+** Section #7 '.shstrtab' (SHT_STRTAB)
+    Size   : 84 bytes
+
+

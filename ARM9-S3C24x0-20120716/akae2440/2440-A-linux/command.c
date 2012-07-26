@@ -287,13 +287,18 @@ void autoplay(void)
 	go(2, go_argv);
 #endif
 
+#if 1
 	// load linux kernel from flash 1M: -> SDRAM 0x30008000 (size = 2M)
 	printf("load linux kernel from flash 1M: -> SDRAM 0x30008000 (size = 2M) \n");
 	nand_read(0x100000, (char *)0x30008000, 0x200000);	
 	
 	// load rootfs from flash 4M: -> SDRAM 0x30800000 (size = 6M)	
 	printf("load rootfs from flash 4M: -> SDRAM 0x30800000 (size = 6M) \n");
-	nand_read(0x400000, (char *)0x30800000, 0x600000);	
+	nand_read(0x400000, (char *)0x30800000, 0x600000);
+#endif
+	//nand_read(0x4000, (char *)0x31000000, 0x8000);	// flash = 16k;	size = 32k
+			
+	//((void (*)(void)0x31000000)();
 }
 
 int play(int argc, char * argv[])

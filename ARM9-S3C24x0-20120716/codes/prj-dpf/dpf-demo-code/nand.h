@@ -1,0 +1,1 @@
+void nand_init(void);int nand_read_id(void);void nand_read_page(int nand_addr, char * buf);void nand_read(int nand_addr, int sdram_addr, int size);

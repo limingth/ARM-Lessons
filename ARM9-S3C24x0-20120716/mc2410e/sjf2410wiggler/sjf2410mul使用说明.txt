@@ -1,0 +1,8 @@
+本软件用于windows下烧写s3c2410开发平台的flash,可使用wiggler或者sjf两种jtag，可烧nand flash和sst39vf160
+使用方法
+sfj2410mul /f:vivi
+启动本软件
+根据提示选择wiggler或者sjf
+再根据提示选择flash
+
+support@brightide.com
