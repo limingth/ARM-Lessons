@@ -485,4 +485,10 @@ day7:
 	http://www.mp3do.com/mp3converter.html
 	http://www.mp3do.com/download/mp3converter/advanced-mp3-converter.exe
 
+## 项目验收标准
+	1. 加电后自启动，无需用户输入任何按键即可启动数码相框程序
+	2. 自选至少3张 640x480 的 bmp 图片，并循环播放
+	3. 实现至少1种图片切换的特效 （例如进入，渐变或者百叶窗等）
+	4. 自选至少1首 wav 背景音乐，并循环播放
+	5. 项目源码结构清晰，注释得当，有文档说明
 
