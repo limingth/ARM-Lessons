@@ -1,0 +1,17 @@
+
+
+ifneq ($(KERNELRELEASE),)
+#kbuild part of makefile
+obj-m :=driver.o
+else
+
+KERNELSRC:=/home/bryan/work/linux-2.6.27
+#KERNELSRC:=/usr/src/linux-headers-2.6.32-27-generic
+
+modules :
+	make -C $(KERNELSRC) SUBDIRS=$(PWD) $@
+
+clean:
+	rm -f *.o *.ko *.mod.c *~
+
+endif

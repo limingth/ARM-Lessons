@@ -1,0 +1,1 @@
+cmd_/home/akaedu/drivers_guo/uart_init/serial_int/driver.ko := arm-linux-ld -EL -r   --build-id -o /home/akaedu/drivers_guo/uart_init/serial_int/driver.ko /home/akaedu/drivers_guo/uart_init/serial_int/driver.o /home/akaedu/drivers_guo/uart_init/serial_int/driver.mod.o

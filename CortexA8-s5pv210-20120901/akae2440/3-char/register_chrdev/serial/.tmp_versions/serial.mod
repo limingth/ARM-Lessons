@@ -1,0 +1,2 @@
+/home/bryan/akaedu/工作相关/2440板子/1130_stu/serial/serial.ko
+/home/bryan/akaedu/工作相关/2440板子/1130_stu/serial/serial.o

@@ -1,0 +1,1 @@
+cmd_/home/bryan/t49/register_chrdev/register_dev.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-2.6.32-40-generic/scripts/module-common.lds --build-id -o /home/bryan/t49/register_chrdev/register_dev.ko /home/bryan/t49/register_chrdev/register_dev.o /home/bryan/t49/register_chrdev/register_dev.mod.o

@@ -1,0 +1,1 @@
+cmd_/home/bryan/akaedu/工作相关/2440板子/1127/driver.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-2.6.32-35-generic/scripts/module-common.lds --build-id -o /home/bryan/akaedu/工作相关/2440板子/1127/driver.ko /home/bryan/akaedu/工作相关/2440板子/1127/driver.o /home/bryan/akaedu/工作相关/2440板子/1127/driver.mod.o
