@@ -1,0 +1,24 @@
+CC = arm-linux-gcc
+KDIR = /home/limingth/tiny210/src/linux-2.6.35.7
+#KDIR :=/usr/src/linux-headers-2.6.32-30-generic
+
+CFLAGS = -D__KERNEL__ -DMODULE \
+	 -I$(KDIR) \
+	 -I$(KDIR)/include \
+	 -I$(KDIR)/arch/arm/include \
+	 -I$(KDIR)/arch/arm/mach-s5pv210/include \
+	 -I$(KDIR)/arch/arm/plat-s5p/include \
+	 -I$(KDIR)/arch/arm/plat-samsung/include \
+	 -I.
+
+
+
+all:	
+	arm-linux-gcc -Wp,-MD,/home/limingth/tiny210/codes/1-kmod/.hello.o.d  -nostdinc -isystem /opt/FriendlyARM/toolschain/4.5.1/lib/gcc/arm-none-linux-gnueabi/4.5.1/include -I/home/limingth/tiny210/src/linux-2.6.35.7/arch/arm/include -I$(KDIR)/include  -include $(KDIR)/include/generated/autoconf.h -D__KERNEL__ -mlittle-endian -I$(KDIR)/arch/arm/mach-s5pv210/include -I$(KDIR)/arch/arm/plat-s5p/include -I$(KDIR)/arch/arm/plat-samsung/include -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -Os -marm -fno-omit-frame-pointer -mapcs -mno-sched-prolog -mabi=aapcs-linux -mno-thumb-interwork -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -Wframe-larger-than=1024 -fno-stack-protector -fno-omit-frame-pointer -fno-optimize-sibling-calls -g -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack  -DMODULE -D"KBUILD_STR(s)=#s" -D"KBUILD_BASENAME=KBUILD_STR(driver)"  -D"KBUILD_MODNAME=KBUILD_STR(driver)"  -c -o /home/limingth/tiny210/codes/1-kmod/hello.o /home/limingth/tiny210/codes/1-kmod/hello.c
+
+test:
+	arm-linux-gcc $(CFLAGS) -o hello.o -c hello.c
+	arm-linux-ld -r -o hello.ko hello.o
+
+clean:
+	rm *.o *.ko
