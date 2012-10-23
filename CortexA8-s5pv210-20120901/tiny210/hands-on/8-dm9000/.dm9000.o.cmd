@@ -679,7 +679,6 @@ deps_/home/limingth/tiny210/hands-on/8-dm9000/dm9000.o := \
   include/linux/crc32.h \
   include/linux/bitrev.h \
   include/linux/mii.h \
-  include/linux/dm9000.h \
   include/linux/platform_device.h \
   include/linux/mod_devicetable.h \
   include/linux/irq.h \
@@ -695,6 +694,7 @@ deps_/home/limingth/tiny210/hands-on/8-dm9000/dm9000.o := \
   include/asm-generic/irq_regs.h \
   /home/limingth/tiny210/src/linux-2.6.35.7/arch/arm/include/asm/hw_irq.h \
   /home/limingth/tiny210/hands-on/8-dm9000/dm9000.h \
+  /home/limingth/tiny210/hands-on/8-dm9000/dm9000-big.h \
 
 /home/limingth/tiny210/hands-on/8-dm9000/dm9000.o: $(deps_/home/limingth/tiny210/hands-on/8-dm9000/dm9000.o)
 

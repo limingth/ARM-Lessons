@@ -29,7 +29,7 @@
 #include <linux/crc32.h>
 #include <linux/mii.h>
 #include <linux/ethtool.h>
-#include <linux/dm9000.h>
+//#include <linux/dm9000.h>
 #include <linux/delay.h>
 #include <linux/platform_device.h>
 #include <linux/irq.h>
@@ -40,6 +40,7 @@
 #include <asm/io.h>
 
 #include "dm9000.h"
+#include "dm9000-big.h"
 
 /* Board/System/Debug information/definition ---------------- */
 
@@ -1404,6 +1405,8 @@ dm9000_probe(struct platform_device *pdev)
 	int i;
 	u32 id_val;
 
+	printk("mydebug probe \n");
+
 	/* Init network device */
 	ndev = alloc_etherdev(sizeof(struct board_info));
 	if (!ndev) {
@@ -1628,6 +1631,8 @@ dm9000_probe(struct platform_device *pdev)
 
 	platform_set_drvdata(pdev, ndev);
 	ret = register_netdev(ndev);
+
+	printk("mydebug ret = %d\n", ret);
 
 	if (ret == 0)
 		printk(KERN_INFO "%s: dm9000%c at %p,%p IRQ %d MAC: %pM (%s)\n",
